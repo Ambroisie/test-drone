@@ -6,4 +6,12 @@ name: exec docker test
 steps:
 - name: test
   image: hello-world
+---
+kind: pipeline
+type: exec
+name: exec runner test
+steps:
+- name: test
+  commands:
+  - nix shell 'nixpkgs#hello' -c hello
 ...
