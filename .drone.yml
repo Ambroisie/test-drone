@@ -14,4 +14,21 @@ steps:
 - name: test
   commands:
   - nix run 'nixpkgs#hello'
+- name: notify
+  commands:
+  - nix run 'github:ambroisie/matrix-notifier'
+  environment:
+    ADDRESS:
+      from_secret: matrix_homeserver
+    ROOM:
+      from_secret: matrix_roomid
+    USER:
+      from_secret: matrix_username
+    PASS:
+      from_secret: matrix_password
+  settings:
+    trigger:
+      status:
+        - failure
+        - success
 ...
