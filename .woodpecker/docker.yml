@@ -1,0 +1,6 @@
+labels:
+  type: docker
+
+pipeline:
+- name: test
+  image: hello-world
